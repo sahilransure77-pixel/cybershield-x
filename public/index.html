@@ -4,60 +4,55 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#08111f">
-  <title>CyberShield X | Secure Access</title>
+  <meta name="description" content="CyberShield X cybersecurity learning dashboard with URL checks, password guidance and suspicious-link reports.">
+  <title>CyberShield X | Security Dashboard</title>
   <link rel="stylesheet" href="/styles.css">
   <script src="/app.js" defer></script>
 </head>
 <body>
-  <main class="shell">
-    <header class="brand">
-      <div class="brand-mark" aria-hidden="true">C</div>
-      <div><p class="eyebrow">CYBERSECURITY PLATFORM</p><h1>CyberShield <span>X</span></h1></div>
-    </header>
-
-    <section class="panel">
-      <div class="panel-intro">
-        <p class="eyebrow">YOUR SECURITY STARTS HERE</p>
-        <h2 id="form-title">Welcome back</h2>
-        <p id="form-subtitle">Sign in to access your security dashboard.</p>
+<main class="shell shell-wide">
+  <header class="brand"><div class="brand-mark" aria-hidden="true">C</div><div><p class="eyebrow">CYBERSECURITY PLATFORM</p><h1>CyberShield <span>X</span></h1></div><div class="brand-spacer"></div><span id="user-chip" class="user-chip" hidden></span></header>
+  <section id="auth-panel" class="panel auth-panel">
+    <div class="panel-intro"><p class="eyebrow">YOUR SECURITY STARTS HERE</p><h2 id="form-title">Welcome back</h2><p id="form-subtitle">Sign in to access your security dashboard.</p></div>
+    <div id="status" class="status" role="status" aria-live="polite" hidden></div>
+    <div id="auth-view">
+      <div class="tabs" role="tablist" aria-label="Authentication options"><button class="tab active" type="button" id="login-tab" role="tab" aria-selected="true">Sign in</button><button class="tab" type="button" id="register-tab" role="tab" aria-selected="false">Create account</button></div>
+      <form id="auth-form">
+        <div id="name-field" class="field" hidden><label for="name">Full name</label><input id="name" name="name" autocomplete="name" minlength="2" maxlength="80" placeholder="Your name"></div>
+        <div class="field"><label for="email">Email address</label><input id="email" name="email" type="email" autocomplete="email" maxlength="254" required placeholder="you@example.com"></div>
+        <div class="field"><label for="password">Password</label><input id="password" name="password" type="password" autocomplete="current-password" minlength="8" maxlength="72" required placeholder="At least 8 characters"><p class="hint">Use a unique password for this demo account.</p></div>
+        <button class="primary" id="submit-button" type="submit">Sign in securely <span aria-hidden="true">→</span></button>
+      </form>
+      <p class="fine-print"><span class="dot"></span> Session cookies are protected from JavaScript access.</p>
+    </div>
+  </section>
+  <section id="app-view" hidden>
+    <div class="welcome-row"><div><p class="eyebrow">SECURITY WORKSPACE</p><h2 id="welcome-title">Your security dashboard</h2><p class="muted">Practical tools to help you spot common warning signs.</p></div><button id="logout-button" class="secondary logout" type="button">Sign out</button></div>
+    <nav class="nav-tabs" aria-label="Dashboard sections"><button class="nav-tab active" data-view="overview" type="button">Overview</button><button class="nav-tab" data-view="url-checker" type="button">URL checker</button><button class="nav-tab" data-view="password-tool" type="button">Password tool</button><button class="nav-tab" data-view="report-tool" type="button">Report a link</button><button class="nav-tab" data-view="learn" type="button">Learn</button></nav>
+    <div id="app-status" class="status" role="status" aria-live="polite" hidden></div>
+    <section class="app-section active" id="view-overview">
+      <div class="hero-card"><div><p class="eyebrow">STAY ALERT. STAY PROTECTED.</p><h3>Make safer clicks.</h3><p>Check suspicious URLs, review password guidance and learn common scam signals—all in one place.</p><button class="primary compact" data-go="url-checker" type="button">Check a link <span aria-hidden="true">→</span></button></div><div class="hero-symbol" aria-hidden="true">⌁</div></div>
+      <div class="feature-grid">
+        <button class="feature-card" data-go="url-checker" type="button"><span class="feature-icon">↗</span><strong>URL risk checker</strong><span>Spot common URL warning patterns.</span><small>Open tool →</small></button>
+        <button class="feature-card" data-go="password-tool" type="button"><span class="feature-icon">✳</span><strong>Password strength</strong><span>Get local-only password guidance.</span><small>Open tool →</small></button>
+        <button class="feature-card" data-go="report-tool" type="button"><span class="feature-icon">⚑</span><strong>Suspicious-link report</strong><span>Save a report to your account.</span><small>Open tool →</small></button>
+        <button class="feature-card" data-go="learn" type="button"><span class="feature-icon">⌘</span><strong>Security awareness</strong><span>Learn practical safety habits.</span><small>Open guide →</small></button>
       </div>
-
-      <div id="status" class="status" role="status" aria-live="polite" hidden></div>
-
-      <div id="auth-view">
-        <div class="tabs" role="tablist" aria-label="Authentication options">
-          <button class="tab active" type="button" id="login-tab" role="tab" aria-selected="true">Sign in</button>
-          <button class="tab" type="button" id="register-tab" role="tab" aria-selected="false">Create account</button>
-        </div>
-
-        <form id="auth-form">
-          <div id="name-field" class="field" hidden>
-            <label for="name">Full name</label>
-            <input id="name" name="name" autocomplete="name" minlength="2" maxlength="80" placeholder="Your name">
-          </div>
-          <div class="field">
-            <label for="email">Email address</label>
-            <input id="email" name="email" type="email" autocomplete="email" maxlength="254" required placeholder="you@example.com">
-          </div>
-          <div class="field">
-            <label for="password">Password</label>
-            <input id="password" name="password" type="password" autocomplete="current-password" minlength="8" maxlength="72" required placeholder="At least 8 characters">
-            <p class="hint">Use a password you don't use on other sites.</p>
-          </div>
-          <button class="primary" id="submit-button" type="submit">Sign in securely <span aria-hidden="true">→</span></button>
-        </form>
-        <p class="fine-print"><span class="dot"></span> Session cookies are protected from JavaScript access.</p>
-      </div>
-
-      <div id="dashboard" hidden>
-        <div class="welcome-icon" aria-hidden="true">✓</div>
-        <h3 id="welcome-title">You're signed in</h3>
-        <p id="welcome-email" class="muted"></p>
-        <div class="security-note"><strong>Session active</strong><p>Your profile endpoint is protected by server-side token verification.</p></div>
-        <button class="secondary" id="logout-button" type="button">Sign out</button>
-      </div>
+      <p class="disclaimer">Educational project: results are heuristic and cannot certify a website or account as safe.</p>
     </section>
-    <footer>CyberShield X · Authentication starter · Do not use demo code as a complete production security review.</footer>
-  </main>
+    <section class="app-section" id="view-url-checker"><div class="section-heading"><p class="eyebrow">LINK INSPECTION</p><h3>URL risk checker</h3><p class="muted">Looks for common warning patterns without visiting the submitted website.</p></div><form id="url-form" class="tool-card"><label for="check-url">Website URL</label><input id="check-url" name="url" maxlength="2048" placeholder="https://example.com" required><button class="primary" type="submit">Analyze URL</button></form><div id="url-result" class="result-card" hidden aria-live="polite"></div></section>
+    <section class="app-section" id="view-password-tool"><div class="section-heading"><p class="eyebrow">LOCAL CHECK ONLY</p><h3>Password strength guide</h3><p class="muted">Your input stays in this browser and is not sent to the server by this tool.</p></div><div class="tool-card"><label for="strength-password">Try a sample password</label><div class="password-row"><input id="strength-password" type="password" autocomplete="off" maxlength="128" placeholder="Type a password to assess"><button id="toggle-password" class="secondary reveal" type="button">Show</button></div><div class="strength-track"><div id="strength-bar"></div></div><p id="strength-label" class="strength-label">Enter a password to see guidance.</p><ul id="strength-tips" class="check-list"><li>Use a long, unique passphrase.</li><li>Consider a password manager.</li></ul><p class="hint">This simple estimate is not a crack-time guarantee. Never enter a real password into a site you do not trust.</p></div></section>
+    <section class="app-section" id="view-report-tool"><div class="section-heading"><p class="eyebrow">COMMUNITY AWARENESS</p><h3>Report a suspicious link</h3><p class="muted">Save a note to your account for this demo. It is not sent to a real response team.</p></div><form id="report-form" class="tool-card"><label for="report-url">Suspicious URL</label><input id="report-url" name="url" maxlength="2048" required placeholder="https://example.com"><label for="report-reason">Why does it look suspicious?</label><textarea id="report-reason" name="reason" minlength="5" maxlength="500" rows="4" required placeholder="For example: unexpected prize message or a mismatched sender domain"></textarea><button class="primary" type="submit">Save report</button></form><div class="section-heading recent-heading"><h3>Your recent reports</h3></div><div id="reports-list" class="reports-list"><p class="muted">Loading reports…</p></div></section>
+    <section class="app-section" id="view-learn"><div class="section-heading"><p class="eyebrow">SECURITY AWARENESS</p><h3>Small habits, stronger security</h3><p class="muted">Use these checks whenever a message or website feels unexpected.</p></div><div class="tips-grid">
+      <article class="tip-card"><span>01</span><h4>Pause before clicking</h4><p>Unexpected urgency, prizes, threats or account warnings are reasons to slow down and verify through an official app or website.</p></article>
+      <article class="tip-card"><span>02</span><h4>Check the real domain</h4><p>Read the hostname carefully. A familiar brand word inside a long domain does not mean the site belongs to that brand.</p></article>
+      <article class="tip-card"><span>03</span><h4>Protect every account</h4><p>Use unique long passwords and enable multi-factor authentication, especially for email, banking and social accounts.</p></article>
+      <article class="tip-card"><span>04</span><h4>Never share verification codes</h4><p>Do not share one-time codes, recovery codes or passwords with someone who contacts you unexpectedly.</p></article>
+      <article class="tip-card"><span>05</span><h4>Keep devices updated</h4><p>Install operating-system and browser updates, and download apps from trusted official stores.</p></article>
+      <article class="tip-card"><span>06</span><h4>Report, then verify</h4><p>Report suspicious messages using the platform's official process. Contact the organization through a known, trusted channel.</p></article>
+    </div></section>
+  </section>
+  <footer>CyberShield X · Student cybersecurity project · Educational tools only; no scan can guarantee safety.</footer>
+</main>
 </body>
 </html>
