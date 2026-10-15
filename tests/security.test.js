@@ -21,7 +21,7 @@ test("warns about URL shorteners", () => {
 test("does not promise a common HTTPS URL is safe", () => {
   const result = analyzeUrl("https://example.com/");
   assert.equal(result.score, 0);
-  assert.match(result.disclaimer, /cannot guarantee/i);
+  assert.match(result.disclaimer, /guarantee that a link is safe/i);
 });
 test("rejects excessively long URLs", () => {
   assert.equal(normalizeHttpUrl("https://example.com/" + "a".repeat(2050)), null);
