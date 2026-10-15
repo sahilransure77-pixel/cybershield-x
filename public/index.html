@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#08111f">
+  <title>CyberShield X | Secure Access</title>
+  <link rel="stylesheet" href="/styles.css">
+  <script src="/app.js" defer></script>
+</head>
+<body>
+  <main class="shell">
+    <header class="brand">
+      <div class="brand-mark" aria-hidden="true">C</div>
+      <div><p class="eyebrow">CYBERSECURITY PLATFORM</p><h1>CyberShield <span>X</span></h1></div>
+    </header>
+
+    <section class="panel">
+      <div class="panel-intro">
+        <p class="eyebrow">YOUR SECURITY STARTS HERE</p>
+        <h2 id="form-title">Welcome back</h2>
+        <p id="form-subtitle">Sign in to access your security dashboard.</p>
+      </div>
+
+      <div id="status" class="status" role="status" aria-live="polite" hidden></div>
+
+      <div id="auth-view">
+        <div class="tabs" role="tablist" aria-label="Authentication options">
+          <button class="tab active" type="button" id="login-tab" role="tab" aria-selected="true">Sign in</button>
+          <button class="tab" type="button" id="register-tab" role="tab" aria-selected="false">Create account</button>
+        </div>
+
+        <form id="auth-form">
+          <div id="name-field" class="field" hidden>
+            <label for="name">Full name</label>
+            <input id="name" name="name" autocomplete="name" minlength="2" maxlength="80" placeholder="Your name">
+          </div>
+          <div class="field">
+            <label for="email">Email address</label>
+            <input id="email" name="email" type="email" autocomplete="email" maxlength="254" required placeholder="you@example.com">
+          </div>
+          <div class="field">
+            <label for="password">Password</label>
+            <input id="password" name="password" type="password" autocomplete="current-password" minlength="8" maxlength="72" required placeholder="At least 8 characters">
+            <p class="hint">Use a password you don't use on other sites.</p>
+          </div>
+          <button class="primary" id="submit-button" type="submit">Sign in securely <span aria-hidden="true">→</span></button>
+        </form>
+        <p class="fine-print"><span class="dot"></span> Session cookies are protected from JavaScript access.</p>
+      </div>
+
+      <div id="dashboard" hidden>
+        <div class="welcome-icon" aria-hidden="true">✓</div>
+        <h3 id="welcome-title">You're signed in</h3>
+        <p id="welcome-email" class="muted"></p>
+        <div class="security-note"><strong>Session active</strong><p>Your profile endpoint is protected by server-side token verification.</p></div>
+        <button class="secondary" id="logout-button" type="button">Sign out</button>
+      </div>
+    </section>
+    <footer>CyberShield X · Authentication starter · Do not use demo code as a complete production security review.</footer>
+  </main>
+</body>
+</html>
